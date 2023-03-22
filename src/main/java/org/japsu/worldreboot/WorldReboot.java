@@ -1,5 +1,6 @@
 package org.japsu.worldreboot;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,6 +13,8 @@ public final class WorldReboot extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        new Metrics(this, 18036);
 
         Logger pluginLogger = getLogger();
         FileConfiguration config = this.getConfig();
@@ -63,7 +66,7 @@ public final class WorldReboot extends JavaPlugin {
                 }
             }
         }
-        // Do not delete the folder, since CraftBukkit might want to write some uid files there on initialization.
+        // Do not delete the root folder, since CraftBukkit might want to write some uid files there on initialization.
         // folder.delete();
     }
 }
